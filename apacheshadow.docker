@@ -1,0 +1,21 @@
+FROM httpd:2.4
+# TODO serversignature off, httpconfigban
+# servertokens prod directiva a httpd config-ban van
+# index.html-t töröljük
+
+RUN rm -f /usr/local/apache2/htdocs/index.html
+RUN echo "ServerSignature On">> conf/httpd.conf
+RUN echo "ServerTokens Prod">> conf/httpd.conf
+
+# TODO adjunk hozzá egy usert: www, aminek az idje 1000
+# a httpd eze user nevében fusson 
+# a documentroot: /home/www/docroot könyvtárban legyen, ami egy volum
+#
+####
+RUN adduser -u 1000 --gecos "" --disabled-password www
+RUN cat /etc/passwd|grep www
+USER www
+
+ARG root_dir /home/www/docroot
+VOLUME /home/www/docroot
+WORKDIR /home/www/docroot
