@@ -1,0 +1,6 @@
+FROM localhost:5000/perl
+COPY dockerex1/dance.pl /usr/src/dance.pl
+RUN dnf -y install perl-Dancer2
+ENTRYPOINT ["/usr/bin/perl"]
+CMD ["/usr/src/dance.pl"]
+

@@ -1,0 +1,3 @@
+FROM localhost:5000/fedora:30
+
+RUN dnf install -y perl
