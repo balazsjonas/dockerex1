@@ -13,6 +13,7 @@ RUN echo "ServerTokens Prod">> conf/httpd.conf
 #
 ####
 RUN adduser -u 1000 --gecos "" --disabled-password www
+# useradd -u 1000 www :-)
 RUN cat /etc/passwd|grep www
 USER www
 

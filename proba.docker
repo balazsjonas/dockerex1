@@ -1,0 +1,8 @@
+FROM localhost:5000/centos:7
+
+RUN yum -y --nogpgcheck install zsh
+
+CMD ["/bin/zsh"]
+
+# ENTRYPOINT ["/bin/zsh"]
+

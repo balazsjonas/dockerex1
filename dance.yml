@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  dancerdev:
+    image: test/ujimage
+    build:
+      context: .
+      dockerfile: dance.docker
+    ports:
+    - "3000:3000"
+

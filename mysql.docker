@@ -1,0 +1,20 @@
+# ARG MYSQL_VERSION=latest
+# FROM mysql:$MYSQL_VERSION
+#
+
+FROM mysql:8
+
+COPY ./mysql.dump.txt /docker-entrypoint-initdb.d/init.sql
+
+VOLUME /var/lib/mysql
+ENV MYSQL_DATABSE mydb
+ENV MYSQL_ROOT_PASSWORD "1234"
+
+#RUN echo " create database mydb">mysql
+
+# ENTRYPOINT  ["docker-entrypoint.sh"]
+# CMD ["mysqld"]
+
+
+
+
